@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Solar System Demo using A-Frame</title>
+    <meta name="description" content="Solar System Demo using A-Frame">
+    <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script>
+  </head>
+ 
+  <body>
+    <a-scene>
+        <!-- Camera and cursor controls -->
+        <a-entity position="0 2.2 4">
+          <a-entity camera look-controls wasd-controls>
+            <a-entity position="0 0 -3"
+                    geometry="primitive: ring; radiusOuter: 0.30;
+                              radiusInner: 0.25;"
+                    material="color: red; shader: flat"
+                    cursor="maxDistance: 30; fuse: true">
+              <a-animation begin="click" easing="ease-in" attribute="scale"
+                 fill="backwards" from="0.1 0.1 0.1" to="1 1 1" dur="150">
+              </a-animation>
+              <a-animation begin="fusing" easing="ease-in" attribute="scale"
+                 fill="forwards" from="1 1 1" to="0.1 0.1 0.1" dur="1500">
+              </a-animation>
+            </a-entity>
+          </a-entity>
+        </a-entity>
+
+        <!-- Asset Management -->     
+        <a-assets>
+          <img id="Map" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2Fworld-map-Physical.jpg?1497669872833">
+          <img id="CMap" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FWorld%20Map%20-color.jpg?1497669870877">
+          <img id="GMap" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FGold%20World%20Map.jpg?1497671096309">
+          <img id="NMap" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FNight%20World%20Map.jpg?1497671112939">
+          <img id="PMap" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FPMap.jpg?1497673182788">
+          <img id="GSky" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FSpace-2.jpg?1499706490137">
+          <img id="StarS" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FNight%20sky.jpg?1497672188938">
+          <img id="Sun" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FSun.jpg?1499251120359">
+          <img id="Jupiter" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FJupiter.jpg?1499251120602">
+          <img id="Moon" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FMoon.gif?1499251690827">
+          <img id="Neptune" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FNeptune.jpg?1499254008064">
+          <img id="Uranus" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FUranus.png?1499254242566">
+          <img id="Pluto" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FPluto.jpg?1499676286977">
+          <img id="Venus" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FVenus.jpg?1499258624502">
+          <img id="Mercury" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FMercury.jpg?1499258820242">
+          <img id="Mars" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FMars.jpg?1499259845933">
+          <img id="Saturn" src="https://cdn.glitch.com/58acf524-4c51-4c78-9cf1-9ea2600d7482%2FSaturn.jpg?1499260533105">
+        </a-assets>
+
+         <!-- Basic sphere with rotation animation -SUN -->
+          <a-sphere position="-550 1.25 -15" radius="100.5" src="#Sun">
+            <a-animation begin="click" to="0 360 0" attribute="rotation"
+                 fill="backwards" duration="1" repeat="1" easing="linear" segment-height="56">
+            </a-animation>
+          </a-sphere>
+
+         <!-- Basic sphere with rotation animation -MERCURY -->
+          <a-sphere position="-50 1.25 -5" radius="1.9" src="#Mercury">
+            <a-animation begin="click" to="0 360 0" attribute="rotation"
+                 fill="backwards" duration="1" repeat="5" easing="linear" segment-height="56">
+            </a-animation>
+          </a-sphere>
+
+         <!-- Basic sphere with rotation animation -VENUS -->
+          <a-sphere position="-25 1.25 -5" radius="2.0" src="#Venus">
+            <a-animation begin="click" to="0 360 0" attribute="rotation"
+                 fill="backwards" duration="1" repeat="5" easing="linear" segment-height="56">
+            </a-animation>
+          </a-sphere>
+
+         <!-- Basic sphere with rotation animation -EARTH -->
+          <a-sphere position="-4 1.25 -5" radius="2.5" src="#PMap">
+            <a-animation begin="click" to="0 360 0" attribute="rotation"
+                 fill="backwards" duration="1" repeat="5" easing="linear" segment-height="56">
+            </a-animation>
+          </a-sphere>
+
+         <!-- Basic sphere with rotation animation -MOON -->
+          <a-sphere position="5 1.25 -2.5" radius="0.25" src="#Moon">
+            <a-animation begin="click" to="0 360 0" attribute="rotation"
+                 fill="backwards" duration="1" repeat="1" easing="linear" segment-height="56">
+            </a-animation>
+          </a-sphere>
+
+         <!-- Basic sphere with rotation animation -MARS -->
+          <a-sphere position="26 1.25 -5" radius="2.5" src="#Mars">
+            <a-animation begin="click" to="0 360 0" attribute="rotation"
+                 fill="backwards" duration="1" repeat="5" easing="linear" segment-height="56">
+            </a-animation>
+          </a-sphere>
+
+         <!-- Basic sphere with rotation animation -NEPTUNE -->
+          <a-sphere position="170 19.25 -110" radius="8" src="#Neptune">
+            <a-animation begin="click" to="0 360 0" attribute="rotation"
+                 fill="backwards" duration="1" repeat="3" easing="linear" segment-height="56">
+          </a-animation>
+        </a-sphere>
+
+       <!-- Basic sphere with rotation animation -URANUS -->
+        <a-sphere position="110 10.25 0" radius="7.5" src="#Uranus">
+          <a-animation begin="click" to="0 360 0" attribute="rotation"
+               fill="backwards" duration="1" repeat="2" easing="linear" segment-height="56">
+          </a-animation>
+        </a-sphere>
+
+        <!-- Basic sphere with rotation animation -JUPITER -->
+        <a-sphere position="160 17.25 -11" radius="5.5" src="#Jupiter">
+          <a-animation begin="click" to="0 360 0" attribute="rotation"
+               fill="backwards" duration="1" repeat="2" easing="linear" segment-height="56">
+          </a-animation>
+        </a-sphere>
+
+        <!-- Basic sphere with rotation animation -SATURN -->
+        <a-sphere position="200 27.25 -31" radius="5.5" src="#Saturn">
+          <a-animation begin="click" to="0 360 0" attribute="rotation"
+               fill="backwards" duration="1" repeat="2" easing="linear" segment-height="56">
+          </a-animation>
+        </a-sphere>
+
+        <!-- Basic sphere with rotation animation -PLUTO -->
+        <a-sphere position="260 28.25 -11" radius="2.5" src="#Pluto">
+          <a-animation begin="click" to="0 360 0" attribute="rotation"
+               fill="backwards" duration="1" repeat="2" easing="linear" segment-height="56">
+          </a-animation>
+        </a-sphere>
+
+        <!-- Under a sky -->
+        <a-sky src="#GSky">
+        </a-sky>  
+ 
+    </a-scene>
+ 
+  </body>
+</html>
